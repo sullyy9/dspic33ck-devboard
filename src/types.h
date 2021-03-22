@@ -1,16 +1,16 @@
 /*----------------------------------------------------------------------------*/
 /*
-    Ryan Sullivan
-
-    Module Name     : types.h
-    Description     : header file for all universal includes
-*/
+ *  Ryan Sullivan
+ *
+ *  Module Name     : 
+ *  Description     : header file
+ */
 /*----------------------------------------------------------------------------*/
 
 #include <stdbool.h>
 #include <stdint.h>
 
-#include "xc.h"
+#include <xc.h>
 
 /*----------------------------------------------------------------------------*/
 /*-constant-definitions-------------------------------------------------------*/

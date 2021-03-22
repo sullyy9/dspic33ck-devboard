@@ -2,22 +2,18 @@
 /*
  *  Ryan Sullivan
  *
- *  Module Name     : io.c
- *  Description     : io functions
+ *  Module Name     : port.c
+ *  Description     : pin functions
  */
 /*----------------------------------------------------------------------------*/
 
 #include "types.h"
 
-#include "io.h"
 #include "port.h"
 
 /*----------------------------------------------------------------------------*/
 /*-constant-definitions-------------------------------------------------------*/
 /*----------------------------------------------------------------------------*/
-
-#define DEBUG_LED2  PORT_E5
-#define DEBUG_LED1  PORT_E6
 
 /*----------------------------------------------------------------------------*/
 /*-exported-variables---------------------------------------------------------*/
@@ -31,71 +27,119 @@
 /*-forward-declarations-------------------------------------------------------*/
 /*----------------------------------------------------------------------------*/
 
-void    port_initialise(void);
+void    set_pin_output(uint16_t port_pin);
+void    set_pin_input(uint16_t port_pin);
 
 /*----------------------------------------------------------------------------*/
 /*-exported-functions---------------------------------------------------------*/
 /*----------------------------------------------------------------------------*/
 
-void io_initialise(void)
+/*
+ * @brief           initialise a pin to the specified mode
+ * @param port_pin: port and pin to be initialised. refer to port.h for
+ *                  possible arguments
+ * @param mode:     mode pin is to be initialised to. refer to port.h
+ *                  for possible arguments
+ * @retval          none
+ */
+void port_initialise_pin(uint16_t port_pin, uint16_t mode)
 {
-    port_initialise();
+    switch( mode )
+    {
+        case PORT_MODE_ANALOG:
+        {
+            break;
+        }
+
+        case PORT_MODE_FLOATING:
+        {
+            set_pin_input(port_pin);
+            break;
+        }
+
+        case PORT_MODE_OPEN_DRAIN:
+        {
+
+            break;
+        }
+
+        case PORT_MODE_PUSH_PULL:
+        {
+            set_pin_output(port_pin);
+            break;
+        }
+
+        case PORT_MODE_ALT_OPEN_DRAIN:
+        {
+
+            break;
+        }
+
+        case PORT_MODE_ALT_OUTPUT:
+        {
+
+            break;
+        }
+
+        default:
+        {
+
+            break;
+        }
+    }
 }
 
 /*----------------------------------------------------------------------------*/
 
 /*
- * @brief turn on a debug led
+ * @brief set a pin
  * 
- * @param led   led to turn on, 1 or 2
+ * @param port_pin  port and pin to set
  */
-void io_debug_led_on(uint8_t led)
+void port_set(uint16_t port_pin)
 {
-    if(led == 1)
-    {
-        port_set(DEBUG_LED1);
-    }
-    else if(led == 2)
-    {
-        port_set(DEBUG_LED2);
-    }
-    else
-    {
-
-    }
+    *(PORT_MASK(port_pin) + LAT) = *(PORT_MASK(port_pin) + LAT) | (1 << PIN_MASK(port_pin));
 }
 
 /*----------------------------------------------------------------------------*/
 
 /*
- * @brief turn off a debug led
+ * @brief clear a pin
  * 
- * @param led   led to turn off, 1 or 2
+ * @param port_pin  port and pin to read
  */
-void io_debug_led_off(uint8_t led)
+void port_clear(uint16_t port_pin)
 {
-    if(led == 1)
-    {
-        port_clear(DEBUG_LED1);
-    }
-    else if(led == 2)
-    {
-        port_clear(DEBUG_LED2);
-    }
-    else
-    {
+    *(PORT_MASK(port_pin) + LAT) = *(PORT_MASK(port_pin) + LAT) & ~(1 << PIN_MASK(port_pin));
+}
 
-    }
+/*----------------------------------------------------------------------------*/
+
+/*
+ * @brief read a pin
+ * 
+ * @param port_pin  port and pin to read from
+ * @return uint8_t  1 if pin is high, 0 if low
+ */
+uint8_t port_read(uint16_t port_pin)
+{
+    return(0);
 }
 
 /*----------------------------------------------------------------------------*/
 /*-static-functions-----------------------------------------------------------*/
 /*----------------------------------------------------------------------------*/
 
-void port_initialise(void)
+void set_pin_output(uint16_t port_pin)
 {
-    port_initialise_pin(DEBUG_LED1, PORT_MODE_PUSH_PULL);
-    port_initialise_pin(DEBUG_LED2, PORT_MODE_PUSH_PULL);
+    *(PORT_MASK(port_pin) + TRIS) = *(PORT_MASK(port_pin) + TRIS) & ~(1 << PIN_MASK(port_pin));
+}
+
+/*----------------------------------------------------------------------------*/
+
+void set_pin_input(uint16_t port_pin)
+{
+    *(PORT_MASK(port_pin) + TRIS) = *(PORT_MASK(port_pin) + TRIS) | (1 << PIN_MASK(port_pin));
 }
 
 /*----------------------------------------------------------------------------*/

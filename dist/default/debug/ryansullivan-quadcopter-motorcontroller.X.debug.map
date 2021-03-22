@@ -4,26 +4,42 @@ Tool Name:
   c:\program files\microchip\xc16\v1.61\bin\bin\..\bin/elf-ld.exe
 
 Command:
+  -TC:\\Users\\ryans\\AppData\\Local\\Temp\\tmp00001d18.00 \
+  -TC:\\Users\\ryans\\AppData\\Local\\Temp\\tmp00001d18.01 \
+  -TC:\\Users\\ryans\\AppData\\Local\\Temp\\tmp00001d18.02 \
+  -TC:\\Users\\ryans\\AppData\\Local\\Temp\\tmp00001d18.03 \
+  -TC:\\Users\\ryans\\AppData\\Local\\Temp\\tmp00001d18.04 \
+  -TC:\\Users\\ryans\\AppData\\Local\\Temp\\tmp00001d18.05 \
+  -TC:\\Users\\ryans\\AppData\\Local\\Temp\\tmp00001d18.06 \
   -p33CK256MP508 \
   --mdfp=C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/dsPIC33CK-MP_DFP/1.5.135/xc16 \
   -o \
-  dist/default/production/ryansullivan-quadcopter-motorcontroller.production.elf \
+  dist/default/debug/ryansullivan-quadcopter-motorcontroller.X.debug.elf \
   -Lc:/program files/microchip/xc16/v1.61/bin/bin/.. \
   -LC:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/dsPIC33CK-MP_DFP/1.5.135/xc16/bin/../support/dsPIC33C/gld \
   -Lc:/program files/microchip/xc16/v1.61/bin/bin/../../lib \
+  -Lc:/program files/microchip/xc16/v1.61/bin/bin/../../lib/PIC24E \
   -Lc:/program files/microchip/xc16/v1.61/bin/bin/../../support/PIC24E/gld \
+  -Lc:/program files/microchip/xc16/v1.61/bin/bin/../../lib/PIC24F \
   -Lc:/program files/microchip/xc16/v1.61/bin/bin/../../support/PIC24F/gld \
+  -Lc:/program files/microchip/xc16/v1.61/bin/bin/../../lib/PIC24H \
   -Lc:/program files/microchip/xc16/v1.61/bin/bin/../../support/PIC24H/gld \
+  -Lc:/program files/microchip/xc16/v1.61/bin/bin/../../lib/dsPIC30F \
   -Lc:/program files/microchip/xc16/v1.61/bin/bin/../../support/dsPIC30F/gld \
   -Lc:/program files/microchip/xc16/v1.61/bin/bin/../../support/dsPIC33C/gld \
+  -Lc:/program files/microchip/xc16/v1.61/bin/bin/../../lib/dsPIC33E \
   -Lc:/program files/microchip/xc16/v1.61/bin/bin/../../support/dsPIC33E/gld \
+  -Lc:/program files/microchip/xc16/v1.61/bin/bin/../../lib/dsPIC33F \
   -Lc:/program files/microchip/xc16/v1.61/bin/bin/../../support/dsPIC33F/gld \
-  build/default/production/src/main.o \
-  build/default/production/src/io.o \
-  build/default/production/src/system.o \
+  build/default/debug/src/main.o \
+  build/default/debug/src/system.o \
+  build/default/debug/src/io.o \
+  build/default/debug/src/port.o \
   --local-stack \
   --defsym=__MPLAB_BUILD=1 \
-  -Tp33CK256MP508.gld.00 \
+  --defsym=__MPLAB_DEBUG=1 \
+  --defsym=__DEBUG=1 \
+  -Tp33CK256MP508.gld.07 \
   --stack=16 \
   --check-sections \
   --data-init \
@@ -35,10 +51,10 @@ Command:
   --stackguard=16 \
   --no-force-link \
   --smart-io \
-  -Map=dist/default/production/ryansullivan-quadcopter-motorcontroller.production.map \
+  -Map=dist/default/debug/ryansullivan-quadcopter-motorcontroller.X.debug.map \
   --report-mem \
   --memorysummary \
-  dist/default/production/memoryfile.xml \
+  dist/default/debug/memoryfile.xml \
   -start-group \
   --library=lega-pic30-elf \
   --library=m-elf \
@@ -57,6 +73,27 @@ c:/program files/microchip/xc16/v1.61/bin/bin/../../lib\liblega-pic30-elf.a(crt_
                               (__crt_start_mode_normal)
 
 
+Selected CodeGuard Options:
+  FSEC:BWRP:OFF
+  FSEC:BSS:DISABLED
+  FSEC:BSEN:OFF
+  FSEC:GWRP:OFF
+  FSEC:GSS:DISABLED
+  FSEC:CWRP:OFF
+  FSEC:CSS:DISABLED
+  FSEC:AIVTDIS:OFF
+
+CodeGuard FLASH Memory:
+  boot    (none)
+  secure  (none)
+  general 0x200 to 0x2befe
+
+CodeGuard RAM Memory:
+  general 0x1000 to 0x6fff
+  secure  (none)
+  boot    (none)
+
+
 xc16-ld 1.61 (B)
 
 Default Code Model: Small
@@ -68,17 +105,24 @@ Default Scalar Model: Small
 section                    address   length (PC units)   length (bytes) (dec)
 -------                    -------   -----------------   --------------------
 .text                        0x200               0x100           0x180  (384)
-.text                        0x300                0x10            0x18  (24)
+.text                        0x300               0x214           0x31e  (798)
 
-                 Total "program" memory used (bytes):          0x198  (408) <1%
+                 Total "program" memory used (bytes):          0x49e  (1182) <1%
 
 
 "data" Memory  [Origin = 0x1000, Length = 0x6000]
 
 section                    address      alignment gaps    total length  (dec)
 -------                    -------      --------------    -------------------
+reserve_data_0x1000         0x1000                0x1c            0x1c  (28)
+reserve_data_0x101c         0x101c                 0x2             0x2  (2)
+reserve_data_0x101e         0x101e                 0x2             0x2  (2)
+reserve_data_0x1020         0x1020                 0x2             0x2  (2)
+reserve_data_0x1022         0x1022                 0x2             0x2  (2)
+reserve_data_0x1024         0x1024                 0x4             0x4  (4)
+reserve_data_0x1028         0x1028                0x28            0x28  (40)
 
-                 Total "data" memory used (bytes):              0  (0) 
+                 Total "data" memory used (bytes):           0x50  (80) <1%
 
 
 Dynamic Memory Usage
@@ -86,9 +130,9 @@ Dynamic Memory Usage
 region                     address                      maximum length  (dec)
 ------                     -------                      ---------------------
 heap                             0                                   0  (0)
-stack                       0x1000                              0x6000  (24576)
+stack                       0x1050                              0x5fb0  (24496)
 
-                 Maximum dynamic memory (bytes):         0x6000  (24576)
+                 Maximum dynamic memory (bytes):         0x5fb0  (24496)
 
 Info: Project is using a large data memory model when small data memory model is sufficient.
 
@@ -97,21 +141,43 @@ External Symbols in Program Memory (by address):
 
                   0x000200                  __resetPRI
                   0x00023c                  __psv_init
-                  0x000248                  __data_init_extended
                   0x000248                  __data_init
+                  0x000248                  __data_init_extended
                   0x0002fa                  __DefaultInterrupt
-                  0x000300                  _main
-                  0x00030a                  _io_initialise
+                  0x000300                  _port_initialise_pin
+                  0x000332                  _port_set
+                  0x000374                  _port_clear
+                  0x0003b8                  _port_read
+                  0x0003c2                  _set_pin_output
+                  0x000406                  _set_pin_input
+                  0x000448                  _system_initialise
+                  0x0004b2                  _io_initialise
+                  0x0004ba                  _io_debug_led_on
+                  0x0004d8                  _io_debug_led_off
+                  0x0004f6                  _port_initialise
+                  0x000508                  _main
+                  0x02bf00                  __FSEC.sec
 
 External Symbols in Program Memory (by name):
 
                   0x0002fa                  __DefaultInterrupt
+                  0x02bf00                  __FSEC.sec
                   0x000248                  __data_init
                   0x000248                  __data_init_extended
                   0x00023c                  __psv_init
                   0x000200                  __resetPRI
-                  0x00030a                  _io_initialise
-                  0x000300                  _main
+                  0x0004d8                  _io_debug_led_off
+                  0x0004ba                  _io_debug_led_on
+                  0x0004b2                  _io_initialise
+                  0x000508                  _main
+                  0x000374                  _port_clear
+                  0x0004f6                  _port_initialise
+                  0x000300                  _port_initialise_pin
+                  0x0003b8                  _port_read
+                  0x000332                  _port_set
+                  0x000406                  _set_pin_input
+                  0x0003c2                  _set_pin_output
+                  0x000448                  _system_initialise
 
 Memory Configuration
 
@@ -141,10 +207,48 @@ FBTSEQ           0x02bffc           0x000002
 
 Linker script and memory map
 
-LOAD build/default/production/src/main.o
-LOAD build/default/production/src/io.o
-LOAD build/default/production/src/system.o
+
+reserve_data_0x1000
+                    0x1000         0x1c
+                    0x101c                  . = 0x1c
+ *fill*             0x1000         0x1c00
+
+reserve_data_0x101c
+                    0x101c          0x2
+                    0x101e                  . = 0x2
+ *fill*             0x101c          0x200
+
+reserve_data_0x101e
+                    0x101e          0x2
+                    0x1020                  . = 0x2
+ *fill*             0x101e          0x200
+
+reserve_data_0x1020
+                    0x1020          0x2
+                    0x1022                  . = 0x2
+ *fill*             0x1020          0x200
+
+reserve_data_0x1022
+                    0x1022          0x2
+                    0x1024                  . = 0x2
+ *fill*             0x1022          0x200
+
+reserve_data_0x1024
+                    0x1024          0x4
+                    0x1028                  . = 0x4
+ *fill*             0x1024          0x400
+
+reserve_data_0x1028
+                    0x1028         0x28
+                    0x1050                  . = 0x28
+ *fill*             0x1028         0x2800
+LOAD build/default/debug/src/main.o
+LOAD build/default/debug/src/system.o
+LOAD build/default/debug/src/io.o
+LOAD build/default/debug/src/port.o
                     0x0001                  __MPLAB_BUILD = 0x1
+                    0x0001                  __MPLAB_DEBUG = 0x1
+                    0x0001                  __DEBUG = 0x1
 LOAD p33CK256MP508
 LOAD c:/program files/microchip/xc16/v1.61/bin/bin/../../lib\libfx-elf.a
                     0x801034                  _iwri1 = 0x801034
@@ -208,8 +312,10 @@ usercode
 __FBOOT
  *(__FBOOT.sec*)
 
-__FSEC
+__FSEC            0x02bf00          0x2
  *(__FSEC.sec*)
+ __FSEC.sec       0x02bf00          0x2 /CW/_FSEC
+                  0x02bf00                  __FSEC.sec
 
 __FBSLIM
  *(__FBSLIM.sec*)
@@ -259,29 +365,39 @@ __FBTSEQ
 .comment
  *(.comment)
 
-.debug_info       0x000000        0x3fe
+.debug_info       0x000000       0x1349
  *(.debug_info)
- .debug_info      0x000000        0x15b build/default/production/src/main.o
- .debug_info      0x00015b        0x15e build/default/production/src/io.o
- .debug_info      0x0002b9        0x145 build/default/production/src/system.o
+ .debug_info      0x000000        0x15e build/default/debug/src/main.o
+ .debug_info      0x00015e        0x819 build/default/debug/src/system.o
+ .debug_info      0x000977        0x5e5 build/default/debug/src/io.o
+ .debug_info      0x000f5c        0x3ed build/default/debug/src/port.o
  *(.gnu.linkonce.wi.*)
 
-.debug_abbrev     0x000000         0x89
+.debug_abbrev     0x000000        0x231
  *(.debug_abbrev)
- .debug_abbrev    0x000000         0x36 build/default/production/src/main.o
- .debug_abbrev    0x000036         0x34 build/default/production/src/io.o
- .debug_abbrev    0x00006a         0x1f build/default/production/src/system.o
+ .debug_abbrev    0x000000         0x36 build/default/debug/src/main.o
+ .debug_abbrev    0x000036         0xc5 build/default/debug/src/system.o
+ .debug_abbrev    0x0000fb         0x8c build/default/debug/src/io.o
+ .debug_abbrev    0x000187         0xaa build/default/debug/src/port.o
 
-.debug_line       0x000000         0x8a
+.debug_line       0x000000        0x33d
  *(.debug_line)
- .debug_line      0x000000         0x3a build/default/production/src/main.o
- .debug_line      0x00003a         0x36 build/default/production/src/io.o
- .debug_line      0x000070         0x1a build/default/production/src/system.o
+ .debug_line      0x000000         0x3b build/default/debug/src/main.o
+ .debug_line      0x00003b        0x11a build/default/debug/src/system.o
+ .debug_line      0x000155         0xa4 build/default/debug/src/io.o
+ .debug_line      0x0001f9        0x144 build/default/debug/src/port.o
 
-.debug_frame      0x000000         0x5c
+.debug_frame      0x000000        0x188
  *(.debug_frame)
- .debug_frame     0x000000         0x2e build/default/production/src/main.o
- .debug_frame     0x00002e         0x2e build/default/production/src/io.o
+ .debug_frame     0x000000         0x2e build/default/debug/src/main.o
+ .debug_frame     0x00002e         0x2e build/default/debug/src/system.o
+ .debug_frame     0x00005c         0x7c build/default/debug/src/io.o
+ .debug_frame     0x0000d8         0xb0 build/default/debug/src/port.o
+
+.debug_str        0x000000         0x35
+ *(.debug_str)
+ .debug_str       0x000000         0x2c build/default/debug/src/system.o
+ .debug_str       0x00002c          0x9 build/default/debug/src/port.o
 
 .debug_loc
  *(.debug_loc)
@@ -290,22 +406,30 @@ __FBTSEQ
  *(.debug_macinfo)
 
 .debug_pubnames
-                  0x000000         0x3f
+                  0x000000        0x11d
  *(.debug_pubnames)
  .debug_pubnames
-                  0x000000         0x1b build/default/production/src/main.o
+                  0x000000         0x1b build/default/debug/src/main.o
  .debug_pubnames
-                  0x00001b         0x24 build/default/production/src/io.o
+                  0x00001b         0x28 build/default/debug/src/system.o
+ .debug_pubnames
+                  0x000043         0x61 build/default/debug/src/io.o
+ .debug_pubnames
+                  0x0000a4         0x79 build/default/debug/src/port.o
 
 .debug_ranges
  *(.debug_ranges)
 
-.debug_aranges    0x000000         0x30
+.debug_aranges    0x000000         0x60
  *(.debug_aranges)
  .debug_aranges
-                  0x000000         0x18 build/default/production/src/main.o
+                  0x000000         0x18 build/default/debug/src/main.o
  .debug_aranges
-                  0x000018         0x18 build/default/production/src/io.o
+                  0x000018         0x18 build/default/debug/src/system.o
+ .debug_aranges
+                  0x000030         0x18 build/default/debug/src/io.o
+ .debug_aranges
+                  0x000048         0x18 build/default/debug/src/port.o
                     0x0000                  WREG0 = 0x0
                     0x0000                  _WREG0 = 0x0
                     0x0002                  WREG1 = 0x2
@@ -3859,33 +3983,89 @@ LOAD c:/program files/microchip/xc16/v1.61/bin/bin/../../lib\liblega-pic30-elf.a
 LOAD c:/program files/microchip/xc16/v1.61/bin/bin/../../lib\libm-elf.a
 LOAD c:/program files/microchip/xc16/v1.61/bin/bin/../../lib\liblega-c-elf.a
 END GROUP
-OUTPUT(dist/default/production/ryansullivan-quadcopter-motorcontroller.production.elf elf32-pic30)
+OUTPUT(dist/default/debug/ryansullivan-quadcopter-motorcontroller.X.debug.elf elf32-pic30)
+LOAD /CW/_FSEC
 LOAD default_isr
 
 .debug_pubtypes
-                  0x000030         0x36
+                  0x000060        0x134
  .debug_pubtypes
-                  0x000030         0x12 build/default/production/src/main.o
+                  0x000060         0x12 build/default/debug/src/main.o
  .debug_pubtypes
-                  0x000042         0x12 build/default/production/src/io.o
+                  0x000072         0xa3 build/default/debug/src/system.o
  .debug_pubtypes
-                  0x000054         0x12 build/default/production/src/system.o
+                  0x000115         0x2c build/default/debug/src/io.o
+ .debug_pubtypes
+                  0x000141         0x53 build/default/debug/src/port.o
 
 __c30_signature
-                  0x000066         0x1e
+                  0x000194         0x24
  __c30_signature
-                  0x000066          0x6 build/default/production/src/main.o
+                  0x000194          0x6 build/default/debug/src/main.o
  __c30_signature
-                  0x00006c          0x6 build/default/production/src/io.o
+                  0x00019a          0x6 build/default/debug/src/system.o
  __c30_signature
-                  0x000072          0x6 build/default/production/src/system.o
+                  0x0001a0          0x6 build/default/debug/src/io.o
  __c30_signature
-                  0x000078          0x6 c:/program files/microchip/xc16/v1.61/bin/bin/../../lib\liblega-pic30-elf.a(crt0_extendedch.o)
+                  0x0001a6          0x6 build/default/debug/src/port.o
  __c30_signature
-                  0x00007e          0x6 c:/program files/microchip/xc16/v1.61/bin/bin/../../lib\liblega-pic30-elf.a(data_init_extendedch.o)
+                  0x0001ac          0x6 c:/program files/microchip/xc16/v1.61/bin/bin/../../lib\liblega-pic30-elf.a(crt0_extendedch.o)
+ __c30_signature
+                  0x0001b2          0x6 c:/program files/microchip/xc16/v1.61/bin/bin/../../lib\liblega-pic30-elf.a(data_init_extendedch.o)
 
-.text             0x000300         0x10
- .text            0x000300          0xa build/default/production/src/main.o
-                  0x000300                  _main
- .text            0x00030a          0x6 build/default/production/src/io.o
-                  0x00030a                  _io_initialise
+.config_BTMODE    0x801800          0x2
+ .config_BTMODE
+                  0x801800          0x2 build/default/debug/src/system.o
+
+.config_IBSEQ     0x02bffc          0x2
+ .config_IBSEQ    0x02bffc          0x2 build/default/debug/src/system.o
+
+.config_CTXT4     0x02bf44          0x2
+ .config_CTXT4    0x02bf44          0x2 build/default/debug/src/system.o
+
+.config_SPI2PIN
+                  0x02bf40          0x2
+ .config_SPI2PIN
+                  0x02bf40          0x2 build/default/debug/src/system.o
+
+.config_DMTDIS    0x02bf3c          0x2
+ .config_DMTDIS
+                  0x02bf3c          0x2 build/default/debug/src/system.o
+
+.config_NOBTSWP
+                  0x02bf28          0x2
+ .config_NOBTSWP
+                  0x02bf28          0x2 build/default/debug/src/system.o
+
+.config_BISTDIS
+                  0x02bf24          0x2
+ .config_BISTDIS
+                  0x02bf24          0x2 build/default/debug/src/system.o
+
+.config_FWDTEN    0x02bf20          0x2
+ .config_FWDTEN
+                  0x02bf20          0x2 build/default/debug/src/system.o
+
+.config_XTBST     0x02bf1c          0x2
+ .config_XTBST    0x02bf1c          0x2 build/default/debug/src/system.o
+
+.config_IESO      0x02bf18          0x2
+ .config_IESO     0x02bf18          0x2 build/default/debug/src/system.o
+
+.text             0x000300        0x214
+ .text            0x000300        0x148 build/default/debug/src/port.o
+                  0x000300                  _port_initialise_pin
+                  0x000332                  _port_set
+                  0x000374                  _port_clear
+                  0x0003b8                  _port_read
+                  0x0003c2                  _set_pin_output
+                  0x000406                  _set_pin_input
+ .text            0x000448         0x6a build/default/debug/src/system.o
+                  0x000448                  _system_initialise
+ .text            0x0004b2         0x56 build/default/debug/src/io.o
+                  0x0004b2                  _io_initialise
+                  0x0004ba                  _io_debug_led_on
+                  0x0004d8                  _io_debug_led_off
+                  0x0004f6                  _port_initialise
+ .text            0x000508          0xc build/default/debug/src/main.o
+                  0x000508                  _main
