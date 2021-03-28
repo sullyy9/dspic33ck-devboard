@@ -1,0 +1,3 @@
+C:/Users/ryans/Documents/Workspaces/VSCodeWorkspace/ryansullivan-quadcopter-motorcontroller/build/CMakeFiles/ryansullivan-quadcopter-motorcontroller.elf.dir
+C:/Users/ryans/Documents/Workspaces/VSCodeWorkspace/ryansullivan-quadcopter-motorcontroller/build/CMakeFiles/edit_cache.dir
+C:/Users/ryans/Documents/Workspaces/VSCodeWorkspace/ryansullivan-quadcopter-motorcontroller/build/CMakeFiles/rebuild_cache.dir

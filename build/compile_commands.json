@@ -1,0 +1,22 @@
+[
+{
+  "directory": "C:/Users/ryans/Documents/Workspaces/VSCodeWorkspace/ryansullivan-quadcopter-motorcontroller/build",
+  "command": "C:\\PROGRA~1\\MICROC~1\\xc16\\v1.61\\bin\\xc16-gcc.exe  -isystem C:\\PROGRA~1\\MICROC~1\\xc16\\v1.61\\include -isystem C:\\PROGRA~1\\MICROC~1\\xc16\\v1.61\\support\\generic\\h -isystem C:\\PROGRA~1\\MICROC~1\\xc16\\v1.61\\support\\dsPIC33C\\h -mcpu=33CK256MP508 -Wall -O0 -o CMakeFiles\\ryansullivan-quadcopter-motorcontroller.elf.dir\\src\\io.c.obj -c C:\\Users\\ryans\\Documents\\Workspaces\\VSCodeWorkspace\\ryansullivan-quadcopter-motorcontroller\\src\\io.c",
+  "file": "C:/Users/ryans/Documents/Workspaces/VSCodeWorkspace/ryansullivan-quadcopter-motorcontroller/src/io.c"
+},
+{
+  "directory": "C:/Users/ryans/Documents/Workspaces/VSCodeWorkspace/ryansullivan-quadcopter-motorcontroller/build",
+  "command": "C:\\PROGRA~1\\MICROC~1\\xc16\\v1.61\\bin\\xc16-gcc.exe  -isystem C:\\PROGRA~1\\MICROC~1\\xc16\\v1.61\\include -isystem C:\\PROGRA~1\\MICROC~1\\xc16\\v1.61\\support\\generic\\h -isystem C:\\PROGRA~1\\MICROC~1\\xc16\\v1.61\\support\\dsPIC33C\\h -mcpu=33CK256MP508 -Wall -O0 -o CMakeFiles\\ryansullivan-quadcopter-motorcontroller.elf.dir\\src\\main.c.obj -c C:\\Users\\ryans\\Documents\\Workspaces\\VSCodeWorkspace\\ryansullivan-quadcopter-motorcontroller\\src\\main.c",
+  "file": "C:/Users/ryans/Documents/Workspaces/VSCodeWorkspace/ryansullivan-quadcopter-motorcontroller/src/main.c"
+},
+{
+  "directory": "C:/Users/ryans/Documents/Workspaces/VSCodeWorkspace/ryansullivan-quadcopter-motorcontroller/build",
+  "command": "C:\\PROGRA~1\\MICROC~1\\xc16\\v1.61\\bin\\xc16-gcc.exe  -isystem C:\\PROGRA~1\\MICROC~1\\xc16\\v1.61\\include -isystem C:\\PROGRA~1\\MICROC~1\\xc16\\v1.61\\support\\generic\\h -isystem C:\\PROGRA~1\\MICROC~1\\xc16\\v1.61\\support\\dsPIC33C\\h -mcpu=33CK256MP508 -Wall -O0 -o CMakeFiles\\ryansullivan-quadcopter-motorcontroller.elf.dir\\src\\port.c.obj -c C:\\Users\\ryans\\Documents\\Workspaces\\VSCodeWorkspace\\ryansullivan-quadcopter-motorcontroller\\src\\port.c",
+  "file": "C:/Users/ryans/Documents/Workspaces/VSCodeWorkspace/ryansullivan-quadcopter-motorcontroller/src/port.c"
+},
+{
+  "directory": "C:/Users/ryans/Documents/Workspaces/VSCodeWorkspace/ryansullivan-quadcopter-motorcontroller/build",
+  "command": "C:\\PROGRA~1\\MICROC~1\\xc16\\v1.61\\bin\\xc16-gcc.exe  -isystem C:\\PROGRA~1\\MICROC~1\\xc16\\v1.61\\include -isystem C:\\PROGRA~1\\MICROC~1\\xc16\\v1.61\\support\\generic\\h -isystem C:\\PROGRA~1\\MICROC~1\\xc16\\v1.61\\support\\dsPIC33C\\h -mcpu=33CK256MP508 -Wall -O0 -o CMakeFiles\\ryansullivan-quadcopter-motorcontroller.elf.dir\\src\\system.c.obj -c C:\\Users\\ryans\\Documents\\Workspaces\\VSCodeWorkspace\\ryansullivan-quadcopter-motorcontroller\\src\\system.c",
+  "file": "C:/Users/ryans/Documents/Workspaces/VSCodeWorkspace/ryansullivan-quadcopter-motorcontroller/src/system.c"
+}
+]

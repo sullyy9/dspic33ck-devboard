@@ -15,6 +15,7 @@
 /*-constant-definitions-------------------------------------------------------*/
 /*----------------------------------------------------------------------------*/
 
+#define FAST_RC_HZ                 8000000
 #define PRIMARY_OSCILLATOR_HZ      8000000
 #define PLL_MULTIPLIER             32
 #define PLL_OUT_HZ                 (PRIMARY_OSCILLATOR_HZ * PLL_MULTIPLIER)
@@ -95,7 +96,7 @@
  * @param:      None
  * @retval:     None
  */
-void system_initialise(void)
+void system_clocks_initialise(void)
 {
     /* Relevent registers:
     * OSCCON:       OSCILLATOR CONTROL REGISTER
@@ -114,7 +115,7 @@ void system_initialise(void)
 
     /*
     * Configure PLL to output 256Mhz.
-    * Configure the ratio between Fp and the periphreal clocks to be 1:1
+    * Configure the ratio between Fp and the peripheral clocks to be 1:1
     * Switch clock source to the primary oscillator with PLL.
     * Fout = Fin * (PLLFBDIV / (PLLPRE * POST1DIV * POST2DIV))
     */
@@ -130,6 +131,48 @@ void system_initialise(void)
     __builtin_write_OSCCONL(OSCCON | 1);
     while(OSCCONbits.OSWEN == 1);
     while(OSCCONbits.LOCK == 0);
+}
+
+/*----------------------------------------------------------------------------*/
+
+/*
+ * @brief:  configure timer 1 as a counter
+ * 
+ * @param:  time interval at which the timer interupt will trigger
+ */
+void system_timer_initialise(uint16_t time_ms)
+{
+    /*
+     * Set clock to Fp
+     * Calculate prescaler
+     * Calculate period
+     * Enable the timer
+     */
+    T1CONbits.TCS = 0;      //use peripheral clock (Fp)
+
+    uint16_t prescale_count = 0;
+    uint16_t prescale_value[4] = {1, 8, 64, 256};
+    while((((prescale_value[prescale_count] * 65535 * 1000) / PERIPHERAL_CLOCK_HZ) < time_ms) && (prescale_count < 3))
+    {
+        prescale_count++;
+    }
+    T1CONbits.TCKPS = prescale_count;   //set the prescale level(1:1, 1:8, 1:64, 1:256)
+
+    uint16_t period = 1;
+    while((((period * prescale_value[prescale_count] * 1000) / PERIPHERAL_CLOCK_HZ ) < time_ms) && (period < 65535))
+    {
+        period++;
+    }
+    PR1 = period;
+
+    T1CONbits.TON = 1;      //enable timer 1
+
+    /*
+     * Configure the timer 1 interupt.
+     */
+    IPC0bits.T1IP = 4;      //Set priority to middleish
+    IFS0bits.T1IF = 0;      //clear interupt flag
+    IEC0bits.T1IE = 1;      //enable the interupt
 }
 
 /*----------------------------------------------------------------------------*/

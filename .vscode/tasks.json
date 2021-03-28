@@ -1,0 +1,52 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "IPE",
+            "type": "process",
+            "command": "C:\\Program Files\\Microchip\\MPLABX\\v5.45\\mplab_platform\\mplab_ipe\\ipecmd.exe",
+            "args": [
+                "-P33CK256MP508",
+                "-TPPKOB4",
+                "-F${workspaceFolder}\\build\\ryansullivan-quadcopter-motorcontroller.hex",
+                "-M",
+                "-OL",
+                "-OSL0${workspaceFolder}\\logs\\IPE_log.txt"
+            ]
+        },
+        {
+            "label": "cleanup1",
+            "type": "shell",
+            "command": "del",
+            "args": [
+                "${workspaceFolder}\\logs\\IPE_log*"
+            ],
+            "dependsOn": ["IPE"]
+        },
+        {
+            "label": "cleanup2",
+            "type": "shell",
+            "command": "del",
+            "args": [
+                "${workspaceFolder}\\log.*"
+            ],
+            "dependsOn": ["cleanup1"]
+        },
+        {
+            "label": "cleanup3",
+            "type": "shell",
+            "command": "del",
+            "args": [
+                "${workspaceFolder}\\MPLABXLog.*"
+            ],
+            "dependsOn": ["cleanup2"]
+        },
+        {
+            "label": "flash",
+            "problemMatcher": [],
+            "dependsOn": ["cleanup3"]
+        }
+    ]
+}

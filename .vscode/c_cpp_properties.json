@@ -1,34 +1,25 @@
 {
     "configurations": [
         {
-            "name": "Windows",
+            "name": "Win32",
             "includePath": [
-                "${workspaceFolder}/**",
-                "C:/Program Files/Microchip/xc16/v1.61/include/",
-                "C:/Program Files/Microchip/xc16/v1.61/support/generic/**",
-                "C:/Program Files/Microchip/xc16/v1.61/support/dsPIC33C/h/"
+                "${workspaceFolder}/**"
             ],
             "forcedInclude": [
-                "C:/Program Files/Microchip/xc16/v1.61/include/stdint.h"
             ],
             "defines": [
-                "__XC16_VERSION__=1061",
-                "__dsPIC33CK256MP508__",
-                "int8_t=signed char",
-                "int16_t=signed int",
-                "int32_t=signed long int",
-                "uint8_t=unsigned char",
-                "uint16_t=unsigned int",
-                "uint32_t=unsigned long int",
-                "int8_t=signed char"
             ],
             "browse": {
+                "path": [
+                ],
                 "databaseFilename": "",
                 "limitSymbolsToIncludedHeaders": true
             },
-            "compilerPath": "",
-            "intelliSenseMode": "clang-x64",
-            "cStandard": "c99"
+            "compilerPath": "C:\\Program Files\\mingw-w64\\x86_64-8.1.0-posix-seh-rt_v6-rev0\\mingw64\\bin\\gcc.exe",
+            "cStandard": "c99",
+            "intelliSenseMode": "gcc-arm",
+            "configurationProvider": "ms-vscode.cmake-tools",
+            "compileCommands": "${workspaceFolder}/build/compile_commands.json"
         }
     ],
     "version": 4

@@ -1,0 +1,59 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.17"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"name" : "Release",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "ryansullivan-quadcopter-motorcontroller",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ryansullivan-quadcopter-motorcontroller.elf::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ryansullivan-quadcopter-motorcontroller.elf-Release-65d73289c5cddb97f978.json",
+					"name" : "ryansullivan-quadcopter-motorcontroller.elf",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/ryans/Documents/Workspaces/VSCodeWorkspace/ryansullivan-quadcopter-motorcontroller/build",
+		"source" : "C:/Users/ryans/Documents/Workspaces/VSCodeWorkspace/ryansullivan-quadcopter-motorcontroller"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 2
+	}
+}

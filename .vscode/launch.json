@@ -1,0 +1,38 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "flash",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}\\build\\ryansullivan-quadcopter-motorcontroller.hex",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "C:\\Program Files\\Microchip\\MPLABX\\v5.45\\mplab_platform\bin\\mdb.bat",
+            "setupCommands": [
+                { 
+                    "text": "Device dsPIC33CK256MP508", 
+                    "description": "Set device as dsPIC33CK256MP508", 
+                    "ignoreFailures": false 
+                },
+                { 
+                    "text": "Hwtool pkob4", 
+                    "description": "Set debugger as pkob4", 
+                    "ignoreFailures": false 
+                },
+                { 
+                    "text": "Hwtool pkob4", 
+                    "description": "Set debugger as pkob4", 
+                    "ignoreFailures": false 
+                }
+            ]
+        }
+    ]
+}

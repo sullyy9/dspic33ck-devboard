@@ -1,0 +1,138 @@
+{
+	"artifacts" : 
+	[
+		{
+			"path" : "ryansullivan-quadcopter-motorcontroller.elf"
+		}
+	],
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_executable"
+		],
+		"files" : 
+		[
+			"CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 32,
+				"parent" : 0
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "-mcpu=33CK256MP508 -Wall -O0"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"isSystem" : true,
+					"path" : "C:/Program Files/Microchip/xc16/v1.61/include"
+				},
+				{
+					"isSystem" : true,
+					"path" : "C:/Program Files/Microchip/xc16/v1.61/support/generic/h"
+				},
+				{
+					"isSystem" : true,
+					"path" : "C:/Program Files/Microchip/xc16/v1.61/support/dsPIC33C/h"
+				}
+			],
+			"language" : "C",
+			"languageStandard" : 
+			{
+				"backtraces" : 
+				[
+					1
+				],
+				"standard" : "90"
+			},
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2,
+				3
+			]
+		}
+	],
+	"id" : "ryansullivan-quadcopter-motorcontroller.elf::@6890427a1f51a3e7e1df",
+	"link" : 
+	{
+		"commandFragments" : 
+		[
+			{
+				"fragment" : "-mcpu=33CK256MP508 -Wall -O0",
+				"role" : "flags"
+			},
+			{
+				"fragment" : "-Wl,--script=p33CK256MP508.gld,--report-mem",
+				"role" : "flags"
+			}
+		],
+		"language" : "C"
+	},
+	"name" : "ryansullivan-quadcopter-motorcontroller.elf",
+	"nameOnDisk" : "ryansullivan-quadcopter-motorcontroller.elf",
+	"paths" : 
+	{
+		"build" : ".",
+		"source" : "."
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2,
+				3
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/io.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/main.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/port.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/system.c",
+			"sourceGroupIndex" : 0
+		}
+	],
+	"type" : "EXECUTABLE"
+}

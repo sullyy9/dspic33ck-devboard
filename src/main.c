@@ -9,6 +9,7 @@
 
 #include "types.h"
 
+#include "main.h"
 #include "io.h"
 #include "system.h"
 
@@ -24,6 +25,8 @@
 /*-static-variables-----------------------------------------------------------*/
 /*----------------------------------------------------------------------------*/
 
+static bool running = true;
+
 /*----------------------------------------------------------------------------*/
 /*-forward-declarations-------------------------------------------------------*/
 /*----------------------------------------------------------------------------*/
@@ -34,13 +37,22 @@
 
 int main(void)
 {
-    system_initialise();
+    system_clocks_initialise();
+    system_timer_initialise(1);
     io_initialise();
 
-    io_debug_led_on(1);
+    io_debug_led_on(2);
 
-    while(1);
+    while(running == true);
     return(0);
+}
+
+/*----------------------------------------------------------------------------*/
+
+void __attribute((__interrupt__, __auto_psv__)) _T1Interrupt(void)
+{
+    IFS0bits.T1IF = 0;
+    io_poll();
 }
 
 /*----------------------------------------------------------------------------*/
